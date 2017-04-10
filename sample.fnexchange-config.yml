@@ -1,0 +1,36 @@
+conf:
+  debug: no
+  server:
+    # The port at which the fnexchange server should listen to.
+    # This is overridden by the --port argument
+    port: 8765
+
+    # Require authorization for requests?
+    auth_required: yes
+
+    # Only allow requests with these tokens, send Forbidden otherwise
+    # This setting is only used if auth_required is `True`, else ignored
+    auth_tokens:
+      - "SECURE-TOKEN-1-HERE"
+      - "SECURE-TOKEN-2-HERE"
+
+    # Restart server on file change. This setting is only used when debug is True, else ignored
+    auto_reload: no
+
+    # Seconds after which to kill a plugin call if the plugin doesn't return by then
+    # The value 0 indicates no timeout
+    upstream_timeout: 5
+
+  # This is the registry for enabled plugins.
+  # The KEY (also called: name/alias) is the name with which the plugin is to register itself
+  # The values inside are described below:
+  #   - class_name: The (fully namespaced) Class implementation to register.
+  #   - config: The params (keyword arguments) to pass to the said class during initialization
+  plugins_enabled:
+    hello:
+      class_name: 'fnexchange.core.plugins.HelloPlugin'
+    unique_alias_name:
+      class_name: 'another.plugin.Klass'
+      config:
+        key1: 0.123
+        key2: 'string_value'

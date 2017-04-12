@@ -15,7 +15,7 @@ dependencies = [
 
 setup(
     name='fnexchange',
-    version='0.0.10',
+    version='0.1.0',
     url='https://github.com/dnif/fnExchange',
     license='Apache',
     author='Bhumil Haria',
@@ -33,7 +33,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'fnexchange-cli = fnexchange.cli:cli',
+            'fnexchange = fnexchange.cli:cli',
         ],
     },
 

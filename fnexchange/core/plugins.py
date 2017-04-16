@@ -16,16 +16,6 @@ class AbstractPlugin(object):
         """
         self.config = plugin_config
 
-    @abstractmethod
-    def run(self, request_data):
-        """The actual plugin method that is invoked per request
-        :param request_data the data received in the HTTP request
-        :type request_data core.schema.RequestData
-
-        :rtype: ResponseData
-        """
-        raise NotImplementedError('not implemented')
-
 
 class PluginBuilder(object):
     @classmethod
@@ -58,9 +48,15 @@ class PluginBuilder(object):
 
 
 # Sample Plugin
-class HelloPlugin(AbstractPlugin):
-    def run(self, request_data):
+class GreetingsPlugin(AbstractPlugin):
+    def say_hello(self, payload):
         return {
-            'greeting': "Hello World!",
-            'request_data': request_data,
+            'greeting': "Hello! My name is {0}.".format(self.config.greeter),
+            'requested': payload,
+        }
+
+    def say_bye(self, payload):
+        return {
+            'greeting': "Goodbye! My name is {0}.".format(self.config.greeter),
+            'requested': payload,
         }

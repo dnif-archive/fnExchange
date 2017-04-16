@@ -1,5 +1,4 @@
 import os
-import traceback
 from os import environ
 
 import click
@@ -100,6 +99,8 @@ def runserver(ctx, conf, port, foreground):
     config = read_config(conf)
 
     debug = config['conf'].get('debug', False)
+    click.echo('Debug mode {0}.'.format('on' if debug else 'off'))
+
     port = port or config['conf']['server']['port']
 
     app_settings = {
@@ -109,11 +110,13 @@ def runserver(ctx, conf, port, foreground):
     handlers_settings = __create_handler_settings(config)
 
     if foreground:
+        click.echo('Requested mode: foreground')
         start_app(port, app_settings, handlers_settings)
     else:
+        click.echo('Requested mode: background')
         # subprocess.call([sys.executable, 'yourscript.py'], env=os.environ.copy())
         raise NotImplementedError
 
 
 if __name__ == '__main__':
-    cli()
+    cli(sys.argv[1:])

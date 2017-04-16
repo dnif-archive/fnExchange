@@ -10,11 +10,8 @@ class APIHandler(tornado.web.RequestHandler):
     def __init__(self, *args, **kwargs):
         super(APIHandler, self).__init__(*args, **kwargs)
         self.logger = logging.getLogger('fnexchange.server.handlers.api')
-        self.auth_required = True
-        self.auth_tokens = set()
-        self.registry = None
-        self.upstream_timeout = None
 
+    # noinspection PyAttributeOutsideInit
     def initialize(self, registry, auth_required, auth_tokens, upstream_timeout=None, **kwargs):
         self.auth_required = auth_required
         self.auth_tokens = auth_tokens

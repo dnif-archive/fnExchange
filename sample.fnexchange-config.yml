@@ -24,13 +24,17 @@ conf:
   # This is the registry for enabled plugins.
   # The KEY (also called: name/alias) is the name with which the plugin is to register itself
   # The values inside are described below:
-  #   - class_name: The (fully namespaced) Class implementation to register.
-  #   - config: The params (keyword arguments) to pass to the said class during initialization
+  #   - class_name: The (fully namespaced) class to be used.
+  #   - config: The params (keyword arguments) to pass to the said class during initialization.
+  #             These values can be accessed in the plugin class as `self.config.key`
+  #             This is optional. However, missing config values will cause runtime exceptions!
   plugins_enabled:
-    hello:
-      class_name: 'fnexchange.core.plugins.HelloPlugin'
-    unique_alias_name:
-      class_name: 'another.plugin.Klass'
+    greetings:
+      class_name: 'fnexchange.core.plugins.GreetingsPlugin'
       config:
-        key1: 0.123
-        key2: 'string_value'
+        greeter: 'John Doe'
+    #unique_alias:
+    #  class_name: 'another.plugin.Klass'
+    #  config:
+    #    key1: 0.123
+    #    key2: 'string_value'

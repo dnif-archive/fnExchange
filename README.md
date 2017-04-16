@@ -34,7 +34,8 @@ $ pip install .
 ```
 
 The only thing required for the plugins to function is that they should be
-You can also use plugins that aren't installed in this manner
+available on the `$PYTHONPATH`. This enables using standalone plugins that
+are not available via PyPi and don't have a setup.py
 
 # Configuration
 A configuration file needs to be supplied to the fnExchange server requires
@@ -43,14 +44,14 @@ project.
 
 The configuration file can be validated using the fnexchange CLI by running
 ```
-fnexchange configtest --conf=/path/to/conf.yml
+$ fnexchange configtest --conf=/path/to/conf.yml
 ```
 
 
 # Running the API service
 The service can simply be run using the following command.
 ```
-fnexchange runserver --conf=conf.yml [--port=<port number>] [--background]
+$ fnexchange runserver --conf=conf.yml [--port=<port number>] [--background]
 ```
 The conf argument is required. The port number can be provided either in the
 conf.yml or via the command line option. If the port is provided in the conf
@@ -58,5 +59,5 @@ file, providing it via the CLI is not required. In the case that port numbers
 are provided both via CLI and the conf file, the one provided on the CLI is
 used.
 
-An optional "--background" flag is also available, using it runs the server
+An optional `--background` flag is also available, using it runs the server
 as a background process.

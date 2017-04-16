@@ -40,4 +40,5 @@ def get_app(port, app_settings, handlers_settings):
 
 def start_app(port, app_settings, handlers_settings):
     app = get_app(port, app_settings, handlers_settings)
+    print('Starting server, listening on port {0}'.format(port))
     tornado.ioloop.IOLoop.instance().start()

@@ -42,8 +42,8 @@ class PluginBuilder(object):
         """
         plugins = {}
         for alias, params_dict in plugins_conf.items():
-            plugins[alias] = cls.build_plugin(class_name=params_dict['class_name'],
-                                              config=params_dict.get('config') or {})
+            plugin_config = PluginConfig(**(params_dict.get('config') or {}))
+            plugins[alias] = cls.build_plugin(class_name=params_dict['class_name'], config=plugin_config)
         return plugins
 
 

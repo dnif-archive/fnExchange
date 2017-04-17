@@ -4,9 +4,10 @@ from os import environ
 import click
 import sys
 
-from fnexchange.core.plugins import PluginBuilder
+from fnexchange.core.plugins import PluginBuilder, PluginConfig
 from fnexchange.core.config import read_config
-from fnexchange.server import APIHandler, start_app
+from fnexchange.server.app import start_app
+from fnexchange.server.handlers import APIHandler
 
 
 @click.group()
@@ -60,7 +61,8 @@ def configtest(ctx, conf):
         try:
             class_name = None
             class_name = params_dict['class_name']
-            PluginBuilder.build_plugin(class_name=class_name, config=params_dict.get('config') or {})
+            plugin_config = PluginConfig(**(params_dict.get('config') or {}))
+            PluginBuilder.build_plugin(class_name=class_name, config=plugin_config)
             click.echo("  - alias '{0}' : plugin '{1}' initialized successfully".format(alias, class_name))
         except Exception, e:
             click.echo("  - alias '{0}' : plugin '{1}' initialization failed".format(alias, class_name), err=True)

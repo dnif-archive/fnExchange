@@ -39,8 +39,8 @@ are not available via PyPi and don't have a setup.py
 
 # Configuration
 A configuration file needs to be supplied to the fnExchange server requires
-a configuration. A sample configuration for the conf file is provided in the
-project.
+a configuration. A sample configuration file, with detailed documentation on
+the available options can be found at [sample.fnexchange-config.yml](sample.fnexchange-config.yml)
 
 The configuration file can be validated using the fnexchange CLI by running
 ```
@@ -61,3 +61,8 @@ used.
 
 An optional `--background` flag is also available, using it runs the server
 as a background process.
+
+
+# Plugin Development
+It is incredibly easy to create fnExchange plugins!
+Documentation and samples coming soon!

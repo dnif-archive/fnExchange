@@ -59,10 +59,11 @@ file, providing it via the CLI is not required. In the case that port numbers
 are provided both via CLI and the conf file, the one provided on the CLI is
 used.
 
-An optional `--background` flag is also available, using it runs the server
-as a background process.
+~~An optional `--background` flag is also available, using it runs the server
+as a background process~~. This is currently not implemented.
 
 
 # Plugin Development
 It is incredibly easy to create fnExchange plugins!
-Documentation and samples coming soon!
+The [fnexchange sample plugin](https://github.com/dnif/fnexchange-sample-plugin)
+provides the sample project and developer docs for creating your own custom plugins.

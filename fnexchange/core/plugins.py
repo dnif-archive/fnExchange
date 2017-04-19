@@ -1,5 +1,4 @@
 import importlib
-from abc import abstractmethod
 
 
 class PluginConfig(object):
@@ -45,18 +44,3 @@ class PluginBuilder(object):
             plugin_config = PluginConfig(**(params_dict.get('config') or {}))
             plugins[alias] = cls.build_plugin(class_name=params_dict['class_name'], config=plugin_config)
         return plugins
-
-
-# Sample Plugin
-class GreetingsPlugin(AbstractPlugin):
-    def say_hello(self, payload):
-        return {
-            'greeting': "Hello! My name is {0}.".format(self.config.greeter),
-            'requested': payload,
-        }
-
-    def say_bye(self, payload):
-        return {
-            'greeting': "Goodbye! My name is {0}.".format(self.config.greeter),
-            'requested': payload,
-        }

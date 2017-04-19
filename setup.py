@@ -27,7 +27,7 @@ dependencies = [
 
 setup(
     name='fnexchange',
-    version='0.2.0',
+    version='0.2.1',
     url='https://github.com/dnif/fnExchange',
     license='Apache',
     author='Bhumil Haria',

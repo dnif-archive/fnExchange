@@ -30,7 +30,8 @@ conf:
   #             This is optional. However, missing config values will cause runtime exceptions!
   plugins_enabled:
     greetings:
-      class_name: 'fnexchange.core.plugins.GreetingsPlugin'
+      # from PyPi package fnexchange-sample-plugin
+      class_name: 'greetings.GreetingsPlugin'
       config:
         greeter: 'John Doe'
     #unique_alias:

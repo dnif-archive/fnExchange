@@ -18,13 +18,16 @@ from os import path
 here = path.abspath(path.dirname(__file__))
 
 dependencies = [
-    'click',
+    'click==6.7',
+    'PyYAML==3.12',
     'requests>=2.4.2',
+    'six==1.10.0',
+    'tornado==4.4.2',
 ]
 
 setup(
     name='fnexchange',
-    version='0.2.0',
+    version='0.2.1',
     url='https://github.com/dnif/fnExchange',
     license='Apache',
     author='Bhumil Haria',

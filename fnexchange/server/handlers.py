@@ -94,7 +94,8 @@ class APIHandler(tornado.web.RequestHandler):
         try:
             response_payload = plugin_action(request_payload)
         except:
-            msg = 'Runtime error while processing {0}.{1}'.format(plugin.__class__.__name__, plugin_action.__name__)
+            msg = 'Runtime error while processing {0}.{1}. Is your payload in the correct format?'
+            msg = msg.format(plugin.__class__.__name__, plugin_action.__name__)
             self.logger.exception(msg, exc_info=True)
             raise FnexchangeError(500, msg)
 

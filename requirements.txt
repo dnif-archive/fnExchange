@@ -1,7 +1,7 @@
 backports-abc==0.5
 backports.ssl-match-hostname==3.4.0.2
 click==6.7
-PyYAML==3.12
+PyYAML==5.1
 requests==2.13.0
 singledispatch==3.4.0.3
 six==1.10.0
